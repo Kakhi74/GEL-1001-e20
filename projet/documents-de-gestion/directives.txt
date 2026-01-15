@@ -1,0 +1,30 @@
+Directives de l’évaluation :
+Fichiers à remettre pour la gestion de projet (Gxx):
+1. ordre du jour de la réunion du lendemain (jeudi),
+2. procès verbal de la réunion de jeudi précédent et
+3. diagramme de Gantt mis à jour.
+
+Exceptionnellement pour la première remise (G03):
+remettre seulement l'ordre du jour de la réunion du lendemain (jeudi).
+
+L’ordre du jour de votre réunion doit avoir été préparé et distribué aux membres de votre équipe avant votre réunion.
+Votre ordre du jour doit contenir les éléments suivants :
+1. éléments de gestion de la réunion (présences, nomination du président et du secrétaire de la réunion, adoption de l’ordre du jour et du procès-verbal de la dernière réunion),
+2. suivi des actions du procès-verbal de la réunion précédente,
+3. points de discussion de la réunion,
+4. éléments de gestion du projet (actions à prendre, répartition des tâches, date de la prochaine réunion, évaluation du fonctionnement).
+
+
+Votre procès-verbal doit suivre les points de l’ordre du jour.
+Il est une synthèse de votre réunion.
+Il doit contenir les décisions prises, les assignations des tâches (qui / quand / quoi / comment), et résumer les discussions s’il y a lieu.
+Les procès-verbaux de vos réunions constituent la mémoire de votre équipe, à laquelle chacun peut se référer au besoin.
+
+Votre diagramme de Gantt doit être cohérent avec les tâches assignées lors de vos réunions.
+Il doit contenir une décomposition suffisamment fine de vos tâches pour pouvoir suivre votre progrès à chaque semaine, sans toutefois devenir indéchiffrable.
+En plus des dates de début et de fin, on doit retrouver dans votre diagramme de Gantt les dépendances entre les tâches ainsi que les ressources assignées aux tâches. 
+
+La qualité de la gestion du travail de votre équipe est évaluée selon les critères suivants :
+1. ordres du jour et procès-verbaux des réunions,
+2. planification et suivi des tâches,
+3. planification et suivi des ressources. En particulier, la gestion globale du projet est évaluée à partir de votre projet YouTrack ainsi qu'à partir des ordres du jour et procès-verbaux de vos réunions du jeudi matin. 

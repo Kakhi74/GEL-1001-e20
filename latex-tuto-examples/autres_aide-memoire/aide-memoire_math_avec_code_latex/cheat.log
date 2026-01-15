@@ -1,0 +1,62 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2015/dev/Debian) (preloaded format=pdflatex 2016.5.29)  10 JAN 2017 19:29
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**cheat.tex
+(./cheat.tex
+LaTeX2e <2014/05/01>
+Babel <3.9l> and hyphenation patterns for 79 languages loaded.
+(./psfig.tex
+\@unused=\write3
+
+psfig: version 1.1
+\ps@stream=\read1
+) (./stables.tex
+\ttglue=\skip41
+\stablestylehelp=\toks14
+\stablelinehelp=\toks15
+\stablesmultiplehelp=\toks16
+\stablesthinline=\dimen102
+\stablesthickline=\dimen103
+\stablesbaselineskip=\dimen104
+\stableslineskip=\dimen105
+\stableslineskiplimit=\dimen106
+\stablesmode=\count79
+\stableslines=\count80
+\stablestemp=\count81
+\stablescount=\count82
+\stableslinet=\count83
+\stablestyle=\count84
+\stablestrutsize=\count85
+\stablestrutbox=\box26
+\stablesborderwidth=\dimen107
+\stablesinternalwidth=\dimen108
+\stablesdummy=\dimen109
+\stablesdummyc=\count86
+) (./macros.tex
+\DisSmall=\count87
+\DisCount=\count88
+\DisNumber=\count89
+\DisSpace=\dimen110
+\DisLSpace=\dimen111
+\DisLeftSkip=\dimen112
+\DisParFillSkip=\dimen113
+\DisBaseLineSkip=\dimen114
+))
+*
+! Emergency stop.
+<*> cheat.tex
+             
+End of file on the terminal!
+
+ 
+Here is how much of TeX's memory you used:
+ 269 strings out of 493105
+ 2714 string characters out of 6137072
+ 52476 words of memory out of 5000000
+ 3823 multiletter control sequences out of 15000+600000
+ 4142 words of font info for 16 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 6i,0n,10p,186b,9s stack positions out of 5000i,500n,10000p,200000b,80000s
+!  ==> Fatal error occurred, no output PDF file produced!

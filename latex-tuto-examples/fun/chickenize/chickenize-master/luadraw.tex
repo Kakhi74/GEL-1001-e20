@@ -1,0 +1,107 @@
+\pdfcompresslevel0
+\pdfobjcompresslevel=0
+
+\documentclass{minimal}
+\usepackage{xcolor}
+\directlua{dofile "luadraw.lua"}
+
+\directlua{
+function strictcircle(center,radius)
+  local left = {center[1] - radius, center[2]}
+  local lefttop = {left[1], left[2] + 1.45*radius}
+  local leftbot = {left[1], left[2] - 1.45*radius}
+  local right = {center[1] + radius, center[2]}
+  local righttop = {right[1], right[2] + 1.45*radius}
+  local rightbot = {right[1], right[2] - 1.45*radius}
+
+  move (left)
+  curve (lefttop, righttop, right)
+  curve (rightbot, leftbot, left)
+stroke()
+end
+
+function disturb_point(point)
+  return {point[1] + math.random()*5 - 2.5,
+          point[2] + math.random()*5 - 2.5}
+end
+
+function sloppycircle(center,radius)
+  local left = disturb_point({center[1] - radius, center[2]})
+  local lefttop = disturb_point({left[1], left[2] + 1.45*radius})
+  local leftbot = {lefttop[1], lefttop[2] - 2.9*radius}
+  local right = disturb_point({center[1] + radius, center[2]})
+  local righttop = disturb_point({right[1], right[2] + 1.45*radius})
+  local rightbot = disturb_point({right[1], right[2] - 1.45*radius})
+
+  local right_end = disturb_point(right)
+
+  move (right)
+  curve (rightbot, leftbot, left)
+  curve (lefttop, righttop, right_end)
+  linewidth(math.max(.5,math.random()/1.5))
+stroke()
+end
+
+function sloppyline(start,stop)
+  local start_line = disturb_point(start)
+  local stop_line = disturb_point(stop)
+  start = disturb_point(start)
+  stop = disturb_point(stop)
+  move(start) curve(start_line,stop_line,stop)stroke()
+end
+
+function rectangle(center,width,height)
+  if color then else color = "0 0 0" end
+  if width then else width = 10 end
+  if height then else height = 5 end
+  local p1 = {center[1] - width/2,center[2] + height/2}
+  local p2 = {center[1] + width/2,center[2] + height/2}
+  move(p1)
+  linewidth(height)
+pdf_print("q "..color.." rg "..color.." RG ")
+  line(p2)
+  stroke()
+pdf_print("Q")
+end
+
+}
+
+\long\def\luadraw#1#2{%
+  \vbox to #1bp{%
+    \vfil
+    \luatexlatelua{pdf_print("q") #2 pdf_print("Q")}%
+  }%
+}
+
+\begin{document}
+
+
+\itsame
+\end{document}
+\luadraw{90}{
+kopf = {200,50} % Kopfmitte
+kopf_rad = 20
+
+d = {215,35} % Halsansatz
+e = {230,10} % 
+
+korper = {260,-10}
+korper_rad = 40
+
+bein11 = {260,-50}
+bein12 = {250,-70}
+bein13 = {235,-70}
+
+bein21 = {270,-50}
+bein22 = {260,-75}
+bein23 = {245,-75}
+
+sloppycircle(kopf,kopf_rad)
+sloppyline(d,e)
+sloppycircle(korper,korper_rad)
+sloppyline(bein11,bein12) sloppyline(bein12,bein13)
+sloppyline(bein21,bein22) sloppyline(bein22,bein23)
+}
+
+\end{document}
+

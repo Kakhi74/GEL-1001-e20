@@ -1,0 +1,357 @@
+%%% main file for LaTeX document %%%
+
+%%% ensure that common good practices are respected
+\RequirePackage[l2tabu,orthodox]{nag}
+
+%%% class of the document and options
+\documentclass[12pt, letterpaper, titlepage]{article}
+
+%%% packages to load
+\input{../tex/ultipack}
+
+%%% custom mathematical operators and project-specific abbreviations
+\input{../tex/mathoper}
+\input{../tex/abbrevs}
+
+%%% path(s) to figure files %%%
+%\graphicspath{{./figures/}}
+
+%%% bibliography files (BibLaTex)
+\addbibresource{\jobname.bib}
+%% bibliography style (if BibLaTex: defined in package options)
+%\bibliographystyle{ieeetr}
+
+%%% define title page contents
+\title{A simple LaTeX document}
+\author{John Doe}
+\date{\today}
+
+%%% beginning of the document
+\begin{document}
+
+%% create title page
+\maketitle
+
+
+
+
+
+\begin{center}
+Example 1: The following paragraph (given in quotes) is an 
+example of Center Alignment using the center environment. \cite{Labov1972}
+ 
+``LaTeX is a document preparation system and document markup 
+language. LaTeX uses the TeX typesetting program for formatting 
+its output, and is itself written in the TeX macro language. 
+LaTeX is not the name of a particular editing program, but 
+refers to the encoding or tagging conventions that are used 
+in LaTeX documents".
+\end{center}
+
+
+
+Some of the greatest \emph{discoveries} 
+in science 
+were made by accident.
+ 
+\textit{Some of the greatest \emph{discoveries} 
+in science 
+were made by accident.}
+ 
+\textbf{Some of the greatest \emph{discoveries} 
+in science 
+were made by accident.}
+
+
+
+
+
+ \begin{enumerate}
+   \item First level item
+   \item First level item
+   \begin{enumerate}
+     \item Second level item
+     \item Second level item
+     \begin{enumerate}
+       \item Third level item
+       \item Third level item
+       \begin{enumerate}
+         \item Fourth level item
+         \item Fourth level item
+       \end{enumerate}
+     \end{enumerate}
+   \end{enumerate}
+ \end{enumerate}
+
+\begin{align*}
+a_{n_i} 	a_{n_i} \\ 
+\int_{i=1}^n 	\int_{i=1}^{n} \\
+\sum_{i=1}^{\infty} 	\sum_{i=1}^{\infty} \\
+\prod_{i=1}^n 	\prod_{i=1}^n \\
+\cup_{i=1}^n 	\cup_{i=1}^n \\
+\cap_{i=1}^n 	\cap_{i=1}^n \\
+\oint_{i=1}^n 	\oint_{i=1}^n \\
+\coprod_{i=1}^n
+\end{align*}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+\begin{table}[ht]
+\caption{Multi-column table}
+\begin{center}
+\begin{tabular}{cc}
+    \hline
+    \multicolumn{2}{c}{Multi-column}\\
+    X&X\\
+    \hline
+\end{tabular}
+\end{center}
+\label{tab:multicol}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{table}[ht]
+\caption{Multi-row table}
+\begin{center}
+\begin{tabular}{cc}
+    \hline
+    \multirow{2}{*}{Multirow}&X\\
+    &X\\
+    \hline
+\end{tabular}
+\end{center}
+\label{tab:multicol}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\begin{table}[ht]
+\caption{Multi-column and multi-row table}
+\begin{center}
+\begin{tabular}{ccc}
+    \hline
+    \multicolumn{2}{c}{\multirow{2}{*}{Multi-col-row}}&X\\
+    \multicolumn{2}{c}{}&X\\
+    \hline
+    X&X&X\\
+    \hline
+\end{tabular}
+\end{center}
+\label{tab:multicol}
+\end{table}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+$x=\frac{1+y}{1+2z^2}$
+
+
+$$x=\frac{1+y}{1+2z^2}$$
+
+$$\int_0^\infty e^{-x^2} dx=\frac{\sqrt{\pi}}{2}$$
+
+$$
+ \mathop{\int \!\!\! \int}_{\mathbf{x} \in \mathbf{R}^2} 
+ \! \langle \mathbf{x},\mathbf{y}\rangle 
+ \,d\mathbf{x}
+$$
+
+$\int \!\! \int f(x,y)\,\mathrm{d}x\mathrm{d}y$
+
+
+\begin{equation} x=y+3 \label{eq:xdef}
+\end{equation}
+In equation (\ref{eq:xdef}) we saw $\dots$
+
+
+
+
+
+
+$\left] 0,1
+\right[
+ + \lceil x \rfloor - \langle x,y\rangle$
+
+
+$$
+{n+1\choose k} = {n\choose k} + {n \choose k-1}
+$$
+
+
+
+$$
+|x| = \left\{ \begin{array}{rl}
+ -x &\mbox{ if $x<0$} \\
+  x &\mbox{ otherwise}
+       \end{array} \right.
+$$
+
+
+
+
+
+
+
+$$
+\underbrace{n(n-1)(n-2)\dots(n-m+1)}_
+{\mbox{total of $m$ factors}}
+$$
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\begin{eqnarray}
+&& \int 1 = x + C \nonumber\\
+&& \int x = \frac{x^2}{2} + C \nonumber\\
+&& \int x^2 = \frac{x^3}{3} + C \label{eq:xdef}
+\end{eqnarray}
+
+
+eqnarray and eqnarray* 	Similar to align and align* 	Not recommended because spacing is inconsistent
+
+
+$$
+F(x,y)=0 ~~\mbox{and}~~
+\left| \begin{array}{ccc}
+  F''_{xx} & F''_{xy} &  F'_x \\
+  F''_{yx} & F''_{yy} &  F'_y \\
+  F'_x     & F'_y     & 0 
+  \end{array}\right| = 0
+$$
+
+
+\begin{align*}
+	\sin A \cos B &= \frac{1}{2}\left[ \sin(A-B)+\sin(A+B) \right] \\
+	\sin A \sin B &= \frac{1}{2}\left[ \sin(A-B)-\cos(A+B) \right] \\
+	\cos A \cos B &= \frac{1}{2}\left[ \cos(A-B)+\cos(A+B) \right] \\
+\end{align*}
+
+\[
+        \frac{d}{dx}\left( \int_{0}^{x} f(u)\,du\right)=f(x).
+\]
+
+
+\begin{equation}\label{first}
+a=b+c
+\end{equation}
+some intervening text
+\begin{subequations}\label{grp}
+\begin{align}
+a&=b+c\label{second}\\
+d&=e+f+g\label{third}\\
+h&=i+j\label{fourth}
+\end{align}
+\end{subequations}
+
+
+\boxed{\eta \leq C(\delta(\eta) +\Lambda_M(0,\delta))}
+
+
+
+
+
+
+\begin{equation}
+\Re{z} =\frac{n\pi \dfrac{\theta +\psi}{2}}{
+\left(\dfrac{\theta +\psi}{2}\right)^2 + \left( \dfrac{1}{2}
+\log \left\lvert\dfrac{B}{A}\right\rvert\right)^2}.
+\end{equation}
+
+
+\begin{equation}
+\frac{\sum_{n > 0} z^n}
+{\prod_{1\leq k\leq n} (1-q^k)}
+\end{equation}
+
+
+\begin{equation}
+\sum_{\substack{
+0\le i\le m\\
+0<j<n}}
+P(i,j)
+\end{equation}
+
+
+\[
+ \lim_{x\to 0}{\frac{e^x-1}{2x}}
+ \overset{\left[\frac{0}{0}\right]}{\underset{\mathrm{H}}{=}}
+ \lim_{x\to 0}{\frac{e^x}{2}}={\frac{1}{2}}
+\]
+
+
+\[
+ a \xleftrightarrow[under]{over} b\\
+%
+ A \xLeftarrow[under]{over} B\\
+%
+ B \xRightarrow[under]{over} C\\
+%
+ C \xLeftrightarrow[under]{over} D\\
+%
+ D \xhookleftarrow[under]{over} E\\
+%
+ E \xhookrightarrow[under]{over} F\\
+%
+ F \xmapsto[under]{over} G\\
+\]
+
+
+
+
+\begin{minipage}{3in}
+\begin{align*}
+\intertext{If}
+   A &= \sigma_1+\sigma_2\\
+   B &= \rho_1+\rho_2\\
+\intertext{then}
+C(x) &= e^{Ax^2+\pi}+B
+\end{align*} 
+\end{minipage}
+
+
+\setlength{\unitlength}{1cm}
+\thicklines
+\begin{picture}(10,6)
+\put(2,2.2){\line(1,0){6}}
+\put(2,2.2){\circle{2}}
+\put(6,2.2){\oval(4,2)[r]}
+\end{picture}
+
+
+
+
+\setlength{\unitlength}{0.8cm}
+\begin{picture}(12,4)
+\thicklines
+\put(8,3.3){{\footnotesize $3$-simplex}}
+\put(9,3){\circle*{0.1}}
+\put(8.3,2.9){$a_2$}
+\put(8,1){\circle*{0.1}}
+\put(7.7,0.5){$a_0$}
+\put(10,1){\circle*{0.1}}
+\put(9.7,0.5){$a_1$}
+\put(11,1.66){\circle*{0.1}}
+\put(11.1,1.5){$a_3$}
+\put(9,3){\line(3,-2){2}}
+\put(10,1){\line(3,2){1}}
+\put(8,1){\line(1,0){2}}
+\put(8,1){\line(1,2){1}}
+\put(10,1){\line(-1,2){1}}
+\end{picture}
+
+
+
+
+%% bibliography (if BibLaTex: file imported in preamble)
+%\nocite{*}
+\printbibliography % BibLaTeX
+%\bibliography{ExempleRefs}
+
+%%% end of the document
+\end{document}
+

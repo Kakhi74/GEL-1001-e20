@@ -1,0 +1,233 @@
+%%% main file for LaTeX document %%%
+
+%%% ensure that common good practices are respected
+\RequirePackage[l2tabu,orthodox]{nag}
+
+%%% class of the document and options
+\documentclass[12pt, letterpaper, titlepage]{article}
+
+%%% packages to load
+\input{../tex/ultipack}
+\usepackage{lipsum}
+\usepackage[]{biblatex}
+\usepackage{todonotes}
+\usepackage{matlab-prettifier}
+%%% custom mathematical operators and project-specific abbreviations
+\input{../tex/mathoper}
+\input{../tex/abbrevs}
+
+\title{Un exemple de rapport }
+%%% define title page contents
+\author{Charles-Gabriel Deslauriers}
+\date{\today}
+
+%%% beginning of the document
+\begin{document}
+
+%% create title page
+\maketitle
+\newpage
+\listoffigures
+\newpage
+\listoftables
+\newpage
+\listoftodos[I can be called anything]
+\newpage
+\section{Introduction}
+\todo{Changer le titre de la section}
+
+
+
+\textbf{\lipsum[1]} \textit{Sed non nisi consequat, tempor nisi ac, dapibus leo. Vivamus pretium porta aliquam. Aliquam sed feugiat felis, ut tincidunt eros. Aenean pretium urna eu mauris tempus vulputate. Morbi ultrices viverra erat eget porta. Cras finibus nunc sagittis, congue enim in, rhoncus justo. Nulla rutrum lobortis elit et varius.}
+
+
+\todo[color=green!40]{Doit-on reformuler le passage 'vitae scelerisque ante porta ut' ?}
+
+\section{Section 2}
+\begin{flushleft}
+Aenean laoreet lorem purus, at faucibus odio gravida cursus. Praesent ultrices maximus sem. Quisque euismod ligula at mauris hendrerit lacinia. Morbi nec mauris fringilla, iaculis lorem nec, ullamcorper tellus. Quisque ut velit turpis. Vestibulum eleifend, enim quis elementum convallis, nibh lacus bibendum arcu, eu efficitur odio dui nec justo. Etiam euismod orci at mi cursus, vel rhoncus elit feugiat. Aliquam in lectus eu enim aliquet semper. Pellentesque at varius ante. Duis sit amet vulputate lectus. Sed maximus interdum risus quis finibus. Aenean a mollis magna. Nunc blandit dui at sollicitudin dapibus. Vivamus id malesuada eros. 
+
+
+Voici une référence à une citation 
+
+\missingfigure[figheight=6cm]{Testing a long text string}
+\newcommand{\ntodo}[2][]{\todo[#1]{\thesubsubsection{}. #2}}
+Curabitur consequat diam eu felis aliquet eleifend. Curabitur vitae purus id lacus facilisis eleifend vitae quis neque. Nunc pretium ullamcorper odio eget maximus. \ntodo{A subsection numbered todo.} Morbi sollicitudin in sem nec molestie. Ut et volutpat neque. Duis risus augue, interdum nec imperdiet id, tempus in enim. Aenean odio diam, maximus varius mauris eu, fringilla imperdiet purus.
+\end{flushleft}
+
+
+\begin{enumerate}
+   \item The labels consists of sequential numbers.
+   \begin{itemize}
+     \item The individual entries are indicated with a black dot, a so-called bullet.
+     \item The text in the entries may be of any length.
+   \end{itemize}
+   \item The numbers starts at 1 with every call to the enumerate environment.
+\end{enumerate}
+\todo{Traduire cette partie avant le workshop}
+
+\begin{figure}[!ht]
+	\centering
+		\includegraphics[width=9cm,height=15cm,keepaspectratio]{fig/Basse_Resolution.jpg}
+	\label{fig:Basse_Resolution}
+		\caption{Voici une image basse résolution}
+\end{figure}
+\todo[color=green!40]{Cette image est basse résolution. Est-elle lisible?}
+\newpage
+
+Nullam volutpat pellentesque nisi, quis varius ex iaculis id. Integer volutpat ante id volutpat laoreet. Vivamus eget mauris quis felis ultricies tristique id eget sapien. Vivamus mi turpis, pellentesque et mollis ut, pretium at ante. Phasellus eget libero ligula. Integer vel vulputate quam, at venenatis erat. Aliquam dapibus mi ac massa tincidunt condimentum. Sed sem arcu, facilisis et luctus vel, malesuada vitae quam. Ut non velit sapien. Quisque ut massa erat. Vestibulum id volutpat lorem, eu convallis nibh. Phasellus efficitur augue arcu, at sodales urna semper vel.\ref{fig:Basse_Resolution}
+
+\begin{figure}[!ht]
+	\centering
+		\includegraphics[width=0.60\textwidth,height=0.60\textheight,keepaspectratio]{fig/Haute_Resolution.jpg}
+	\caption{Voici l'image \ref{fig:Basse_Resolution}haute résolution}
+	\label{fig:Haute_Resolution}
+\end{figure}
+\todo[color=green!40]{Ajout d'un newpage ici, à conserver?}
+\newpage
+
+
+\todo[color=green!40]{Le verbatim sert ici pour afficher du code matlab}
+
+\begin{verbatim}
+\% maximum length of the azimuth matched filter and the FFT
+NfiltMax = min( Naz, round( prf * filtBW / Ka(end) ) );
+if mod( NfiltMax, 2 ) == 0
+    NfiltMax = NfiltMax + 1;
+end
+Nfft = Naz + NfiltMax - 1;
+
+\% initialize array for SAR image
+img = zeros( Nrg, Nfft, class( data ) );
+\todo{Expliquer que le verbatim est pour du code matlab}
+\% transform data into the range-Doppler domain
+DATA = fft( data, Nfft, 2 );
+clear data;
+\end{verbatim}
+
+\begin{center}
+\begin{tabular}{ |c|c|c| } 
+ \hline
+ cell1 & cell2 & cell3 \\ 
+ cell4 & cell5 & cell6 \\ 
+ cell7 & cell8 & cell9 \\ 
+ \hline
+\end{tabular}
+\end{center}
+
+
+\setlength{\tabcolsep}{10pt}
+\begin{tabular}{|l|l|}
+\hline
+a  & Row 1 \\ \hline
+b  & Row 2 \\ \hline
+c  & Row 3 \\ \hline
+\end{tabular}
+
+\section{Section 3}
+Fusce tempor scelerisque eros. Nulla eu elit et augue hendrerit commodo ut in eros. Phasellus dapibus massa a lectus consequat sagittis. In sit amet velit vehicula, rutrum nulla sed, hendrerit sem. Nullam vestibulum ornare turpis, a condimentum augue aliquam sed. Maecenas vitae leo euismod, porta massa ac, bibendum est. In luctus eros ipsum, ac pharetra leo vulputate eget. Donec mauris libero, pellentesque vitae vestibulum porta, sagittis vel lacus. In molestie, arcu nec tincidunt consequat, odio nulla imperdiet risus, non euismod velit dolor at turpis. Curabitur porttitor ante nisl, semper malesuada neque pellentesque non. Donec id metus rutrum, feugiat erat sed, vehicula metus. Sed a viverra eros. Donec et arcu eu libero ultrices convallis in nec tellus. Nam erat ipsum, tempus aliquam mattis eu, lobortis eget urna.
+
+\begin{lstlisting}[
+style=Matlab-editor,
+basicstyle=\mlttfamily,
+escapechar=`,
+]
+while `\mlplaceholder{condition}`
+if `\mlplaceholder{something-bad-happens}`
+break
+else
+% do something useful
+end
+end
+\end{lstlisting}
+
+
+Donec a ligula sed leo luctus laoreet a eu augue. In dignissim nisi turpis, ac hendrerit nibh aliquet sit amet. Phasellus porttitor turpis ex, et dignissim magna congue sed. Nunc ac erat elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam neque ligula, hendrerit id nisi id, malesuada aliquam dolor. Pellentesque congue ut erat in vulputate. Vivamus accumsan dui non mauris tempus, at ullamcorper neque gravida. Nulla in est non ipsum venenatis bibendum. Ut libero ex, pretium non posuere ac, congue nec orci. Sed ac nisi in massa fringilla cursus nec a libero. Phasellus scelerisque turpis maximus facilisis pellentesque.
+
+Cras a posuere leo. \todo{Lorem Ipsum à modifier} Cras eu nibh ac risus rutrum vulputate. Proin in libero ut mauris dictum egestas faucibus id odio. Pellentesque rhoncus libero ut nisl tempus porttitor. Sed odio sapien, feugiat fringilla urna vitae, consequat dignissim tortor. Donec finibus lorem nulla, non tempor felis hendrerit eu. Pellentesque imperdiet posuere consequat. Nunc sit amet feugiat lectus. Maecenas sit amet eros sem. Aenean malesuada orci id sollicitudin iaculis. Nam ultricies nunc sodales libero semper commodo. Sed efficitur mollis nisl, quis sagittis magna accumsan dictum. Vivamus consectetur erat varius lorem tempor hendrerit. Nulla ut luctus nulla. 
+
+
+
+\begin{math}
+\int\frac {d\theta}{1+\theta^2} = \tan^{-1} 
+\theta+ C\end{math}
+
+
+\begin{eqnarray}\nonumber
+I_{00}&=& \frac{(2\pi)^3}{\alpha^{\prime 2}}\int d^6x \sqrt{-G}e^{-\Phi} \left[R_G+G^{MN}\partial_M\Phi\partial_N\Phi\right.\\&& \left.-\frac{1}{12}G^{MQ}G^{NR}G^{PS}H_{MNP}H_{QRS}\right]
+\end{eqnarray}
+\todo{Ajouter une référence}
+
+\input{tex/Section_sur_input}
+
+
+\section{Section 4}
+Integer arcu enim, lobortis eget efficitur at, dapibus a nisi. Vestibulum accumsan leo eu varius posuere. Sed nulla turpis, feugiat eu sollicitudin eget, posuere in libero. Sed et augue hendrerit, placerat velit id, iaculis tortor. Donec viverra gravida dui. Sed in quam et purus bibendum maximus vestibulum quis nunc. Mauris vel pulvinar est, at tincidunt ex. Duis fermentum rutrum neque non viverra. Morbi at tortor sollicitudin, ultrices augue id, varius sem. Ut vulputate commodo tortor, eu fringilla mi. Morbi volutpat ultrices arcu, vel ultricies nulla vestibulum vitae. Donec vestibulum viverra est, ac auctor tellus congue ut.
+
+
+\[
+\begin{vmatrix}
+a+b+c&uv\\
+a+b&c+d
+\end{vmatrix}
+=7
+\]
+
+
+Donec sodales orci est, nec congue justo aliquet ut. Cras ante elit, rhoncus eget ultricies non, placerat sit amet metus. Proin commodo enim purus, non lacinia nisl ultrices vitae. Sed eget nulla gravida, tempor ipsum vel, venenatis mauris. Duis elementum urna tincidunt nunc scelerisque efficitur. Cras diam neque, facilisis ac ligula quis, imperdiet sodales justo. Cras consequat, enim sed ultricies ullamcorper, purus sem semper leo, ac mattis mi lacus et turpis. Curabitur ac mauris bibendum purus ultrices dapibus. Phasellus facilisis aliquam diam a dignissim. Sed vitae porta arcu. Cras euismod, quam tristique lobortis vehicula, dolor tellus tempor lorem, ac iaculis leo ipsum ac ante. Curabitur lacus diam, mollis in metus sit amet, malesuada iaculis lacus. Ut est tellus, imperdiet ac eros in, rutrum lobortis elit. Quisque non eros imperdiet, pulvinar ligula eu, feugiat urna.
+
+
+Donec a ligula sed leo luctus laoreet a eu augue. In dignissim nisi turpis, ac hendrerit nibh aliquet sit amet. Phasellus porttitor turpis ex, et dignissim magna congue sed. Nunc ac erat elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam neque ligula, hendrerit id nisi id, malesuada aliquam dolor. Pellentesque congue ut erat in vulputate. Vivamus accumsan dui non mauris tempus, at ullamcorper neque gravida. Nulla in est non ipsum venenatis bibendum. Ut libero ex, pretium non posuere ac, congue nec orci. Sed ac nisi in massa fringilla cursus nec a libero. Phasellus scelerisque turpis maximus facilisis pellentesque.
+
+Cras a posuere leo. Cras eu nibh ac risus rutrum vulputate. Proin in libero ut mauris dictum egestas faucibus id odio. Pellentesque rhoncus libero ut nisl tempus porttitor. Sed odio sapien, feugiat fringilla urna vitae, consequat dignissim tortor. Donec finibus lorem nulla, non tempor felis hendrerit eu. Pellentesque imperdiet posuere consequat. Nunc sit amet feugiat lectus. Maecenas sit amet eros sem. Aenean malesuada orci id sollicitudin iaculis. Nam ultricies nunc sodales libero semper commodo. Sed efficitur mollis nisl, quis sagittis magna accumsan dictum. Vivamus consectetur erat varius lorem tempor hendrerit. Nulla ut luctus nulla. 
+
+\[
+f(x)=
+\begin{cases}
+-x^{2},        &\text{if $x < 0$;}\\
+\alpha + x,    &\text{if $0 \leq x \leq 1$;}\\
+x^{2},         &\text{otherwise.}
+\end{cases}
+\]
+
+
+Donec a ligula sed leo luctus laoreet a eu augue. In dignissim nisi turpis, ac hendrerit nibh aliquet sit amet. Phasellus porttitor turpis ex, et dignissim magna congue sed. Nunc ac erat elit. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam neque ligula, hendrerit id nisi id, malesuada aliquam dolor. Pellentesque congue ut erat in vulputate. Vivamus accumsan dui non mauris tempus, at ullamcorper neque gravida. Nulla in est non ipsum venenatis bibendum. Ut libero ex, pretium non posuere ac, congue nec orci. Sed ac nisi in massa fringilla cursus nec a libero. Phasellus scelerisque turpis maximus facilisis pellentesque.
+
+Cras a posuere leo. Cras eu nibh ac risus rutrum vulputate. Proin in libero ut mauris dictum egestas faucibus id odio. Pellentesque rhoncus libero ut nisl tempus porttitor. Sed odio sapien, feugiat fringilla urna vitae, consequat dignissim tortor. Donec finibus lorem nulla, non tempor felis hendrerit eu. Pellentesque imperdiet posuere consequat. Nunc sit amet feugiat lectus. Maecenas sit amet eros sem. Aenean malesuada orci id sollicitudin iaculis. Nam ultricies nunc sodales libero semper commodo. Sed efficitur mollis nisl, quis sagittis magna accumsan dictum. Vivamus consectetur erat varius lorem tempor hendrerit. Nulla ut luctus nulla. 
+
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[width=0.40\textwidth]{fig/Tetris.jpg}
+	\caption{Tetris est un jeu amusant, tant que le fond est plat}
+	\label{fig:Tetris}
+\end{figure}
+
+
+\section{Conclusion}
+Cras a posuere leo. Cras eu nibh ac risus rutrum vulputate. Proin in libero ut mauris dictum egestas faucibus id odio. Pellentesque rhoncus libero ut nisl tempus porttitor. Sed odio sapien, feugiat fringilla urna vitae, consequat dignissim tortor. Donec finibus lorem nulla, non tempor felis hendrerit eu. Pellentesque imperdiet posuere consequat. Nunc sit amet feugiat lectus. Maecenas sit amet eros sem. Aenean malesuada orci id sollicitudin iaculis. Nam ultricies nunc sodales libero semper commodo. Sed efficitur mollis nisl, quis sagittis magna accumsan dictum. Vivamus consectetur erat varius lorem tempor hendrerit. Nulla ut luctus nulla. 
+
+
+\todo{Un petit dernier TODO pour la route}
+
+
+
+\begin{thebibliography}{9}
+\bibitem{latexcompanion} 
+Michel Goossens, Frank Mittelbach, and Alexander Samarin. 
+\textit{The \LaTeX\ Companion}. 
+Addison-Wesley, Reading, Massachusetts, 1993.
+ 
+\bibitem{einstein} 
+Albert Einstein. 
+\textit{Zur Elektrodynamik bewegter K{\"o}rper}. (German) 
+[\textit{On the electrodynamics of moving bodies}]. 
+Annalen der Physik, 322(10):891–921, 1905.
+ 
+\bibitem{knuthwebsite} 
+Knuth: Computers and Typesetting,
+\\\texttt{http://www-cs-faculty.stanford.edu/\~{}uno/abcde.html}
+\end{thebibliography}
+
+\end{document}
+
