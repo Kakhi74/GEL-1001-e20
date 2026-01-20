@@ -41,7 +41,7 @@
 %**************************************************************************************
 % Redefinitions :
 %    - du format d'affichage des compteurs de la liste "enumerate"
-%    - du format d'affichage des étiquettes de la liste "enumerate"
+%    - du format d'affichage des Ã©tiquettes de la liste "enumerate"
 %
 \renewcommand{\theenumi}{\arabic{enumi}}
 \renewcommand{\labelenumi}{\textbf{\theenumi.}}
@@ -51,14 +51,14 @@
 \renewcommand{\labelenumiii}{\theenumi.\theenumii.\theenumiii.}
 %**************************************************************************************
 %**************************************************************************************
-% Definitions de l'en-tête
+% Definitions de l'en-tÃªte
 %
 \newcommand{\entete}{%
    \thispagestyle{empty}%
    \begin{center}
       \Large\scshape%
       \theCours                                    \\
-      Équipe \theNumeroEquipe\ --- \theNomEquipe   \\[1ex]
+      Ã‰quipe \theNumeroEquipe\ --- \theNomEquipe   \\[1ex]
       \theObjet
    \end{center}
    \medskip
@@ -74,7 +74,7 @@
    \end{tabularx}
    \medskip
    \pagestyle{myheadings}
-   \markright{Équipe \theNumeroEquipe\ --- \theObjet\ (\theDateRencontre)}
+   \markright{Ã‰quipe \theNumeroEquipe\ --- \theObjet\ (\theDateRencontre)}
 }
 %**************************************************************************************
 %**************************************************************************************
@@ -92,9 +92,9 @@
 %**************************************************************************************
 % Definitions des parametres par defaut de la page titre
 %
-\def\theCours{Numéro et nom du cours}                 % Numero et nom du cours
+\def\theCours{NumÃ©ro et nom du cours}                 % Numero et nom du cours
 \def\theNumeroEquipe{XX}                              % Numero de l'equipe
-\def\theNomEquipe{Nom de l'équipe}                    % Nom de l'equipe
+\def\theNomEquipe{Nom de l'Ã©quipe}                    % Nom de l'equipe
 \def\theObjet{Nom du document}                        % Nom du document
 \def\theSujetRencontre{Le sujet}                      % Sujet de la rencontre
 \def\theDateRencontre{La date}                        % Date de la rencontre
